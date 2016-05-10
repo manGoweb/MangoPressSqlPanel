@@ -42,7 +42,10 @@ class MangoPressSqlPanel implements Tracy\IBarPanel {
 			array_shift($callstack);
 			array_shift($callstack);
 			array_shift($callstack);
-			array_map($callstack, 'htmlspecialchars');
+			foreach ($callstack as &$row) {
+				$row = htmlspecialchars($row);
+			}
+			unset($row);
 			$callstack = implode('<br>', $callstack);
 			$inner .= "<tr><td rowspan='2'>$time</td><td><code>$query</code></td></tr><tr><td><code style='font-size:.8em'>$callstack</code></td></tr>";
 		}
