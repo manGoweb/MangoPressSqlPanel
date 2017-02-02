@@ -11,7 +11,9 @@ class MangoPressSqlPanel implements Tracy\IBarPanel {
 
 
 	public function __construct() {
-		define('SAVEQUERIES', true);
+		if(!defined('SAVEQUERIES')) {
+			define('SAVEQUERIES', true);
+		}
 	}
 
 
