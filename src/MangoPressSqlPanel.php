@@ -29,7 +29,7 @@ class MangoPressSqlPanel implements Tracy\IBarPanel {
 		}
 		$count = $wpdb->num_queries;
 		$span->addText(($time ? sprintf(' %0.1f ms / ', $time * 1000) : '') . $count);
-		return $span;
+		return (string) $span;
 	}
 
 
@@ -60,7 +60,7 @@ class MangoPressSqlPanel implements Tracy\IBarPanel {
 			</table>
 		</div>
 		";
-		return $panelHtml;
+		return (string) $panelHtml;
 	}
 
 
